@@ -77,7 +77,7 @@ function App() {
         <button type="submit">Add To Do</button>
       </form>
 
-      {todos.map((todo) => <div key={todo.id}>
+      {todos.map((todo) => <div key={todo.id} className="todo-text">
 
       {todoEditing === todo.id ? 
       (<input 
@@ -87,15 +87,15 @@ function App() {
       :
       (<div>{todo.text}</div>)}
 
-
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
     <input type="checkbox" 
     onChange={()=> toggleComplete(todo.id)}
     checked={todo.completed} />
+      <button onClick={() => deleteTodo(todo.id)}>Delete Task</button>
+ 
 
-    {todoEditing === todo.id ? (<button onClick={() => editTodo(todo.id) }> Submit edits </button>)
+    {todoEditing === todo.id ? (<button onClick={() => editTodo(todo.id) }> Update task </button>)
     : 
-    (<button onClick={() => setTodoEditing(todo.id)}>Edit To Do</button>) 
+    (<button onClick={() => setTodoEditing(todo.id)}>Edit Task</button>) 
     }
     </div>)}
     </div>
